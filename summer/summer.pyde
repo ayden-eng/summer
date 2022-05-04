@@ -7,7 +7,7 @@ def setup():
     Moon = loadImage("moon.png")
 
     
-timer,m,x,X,XX,timer2,n,nn,mm,sun, = True,0,0,1270,1270,None,0,0,False,1000,
+timer,m,x,X,XX,timer2,n,nn,mm,sun, = False,0,0,1270,1270,None,0,0,False,1000,
 def draw():
     global Background ,m,timer,x,X,XX,Night,timer2,n,nn,mm,Sun,sun,Moon
     background(0,0,0)
@@ -25,32 +25,44 @@ def draw():
         X -= 10
         sun += 10
         copy(loadImage("pen.PNG"),x,0,2000,640,0,0,2000,640)
-        image(Sun,sun,40) 
+        fill(244, 247, 32)
+        ellipse(sun+30,100,100,100)
+        image(Sun,sun,50) 
         copy(loadImage("pennight.PNG"),X,0,2000,640,0,0,2000,640)
+        fill(255,255,255)
+        ellipse(sun-1230,85,100,100)
         image(Moon,sun-1270,40)
         if X <= 0:
             timer = None
             image(Night,0,0)
-            timer2= True
+            timer2= False
             x = 0
             sun = -370
     if timer2 == True:
         image(Night,0,0)
+        ellipse(sun+1395,85,100,100)
         image(Moon,1000,40)
+
         for i in range (1,230):
             n += 0.001
             if n >= 220:
                 n = 0
                 timer2 = False
                 X = 0
+                sun = -370
     if timer2 == False:
         XX -= 10
         X -= 10
         sun += 10
 
         copy(loadImage("pennight.PNG"),X,0,2000,640,0,0,2000,640)
+        fill(255,255,255)
+        ellipse(sun+1472,85,100,100)
+
         image(Moon,sun+1420,40)
         copy(loadImage("pen.PNG"),XX,0,2000,640,0,0,2000,640)
+        fill(244, 247, 32)
+        ellipse(sun+30,85,100,100)
         image(Sun,sun,40) 
         if XX <= 0:
             timer2 = None
@@ -62,10 +74,12 @@ def draw():
 
     if timer == True:
         image(Background,0,0)
-        
+        fill(244, 247, 32)
+        ellipse(sun+120,100,100,100)
         image(Sun,1000,50)
         if mm == True:
             text("Summertime is always the best time",150,40)
             textSize(40)
+    
     
     
