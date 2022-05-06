@@ -120,7 +120,9 @@ def draw():
 #_________________________________________________________________This makes clouds when timer one is true
     def Cloud(timer):
         if timer == True:
+            
             fill(255,255,255)
+            noStroke()
             ellipse(100,100,50,40)
             ellipse(120,80,40,40)
             ellipse(140,100,60,50)
@@ -168,6 +170,7 @@ def draw():
 #_____________________________________________________Moves the clouds
     if timer == False:
             fill(255,255,255)
+            noStroke()
             ellipse(-1*x+100,100,50,40)
             ellipse(-1*x+120,80,40,40)
             ellipse(-1*x+140,100,60,50)
